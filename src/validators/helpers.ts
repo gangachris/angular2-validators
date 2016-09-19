@@ -20,5 +20,5 @@ export function getDirectiveProviders(name: string) {
     provide: NG_VALIDATORS,
     useValue: getValidator(name),
     multi: true
-  }
+  };
 };

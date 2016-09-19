@@ -75,8 +75,10 @@ Then you can just use it in your template as a directive
 This module is still in development and PRs are so welcome to the develop branch
 
 ## Added Validators
+* isAfter
 * isAlpha
 * isAlphanumeric
 * isAscii
 * isBase64
+* isBoolean
 * isEmail

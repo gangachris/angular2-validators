@@ -1,22 +1,13 @@
-import { Directive} from '@angular/core';
-import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
-import { getDirectiveName } from './helpers';
-import * as validator from 'validator';
+import { Directive } from '@angular/core';
 
-export function isAfter(c: AbstractControl) {
-  return validator.isAfter(c.value) ? null : {
-    isAfter: {
-      valid: false
-    }
-  };
-}
+import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
+
+const name = 'isAfter';
+
+export const isAfter = getValidator(name)
 
 @Directive({
-  selector: getDirectiveName('isAfter'),
-  providers: [
-    { provide: NG_VALIDATORS, useValue: isAfter, multi: true }
-  ]
+  selector: getDirectiveName(name),
+  providers: [getDirectiveProviders(name)]
 })
-export class AfterValidator{}
-
-
+export class AfterValidator { }
