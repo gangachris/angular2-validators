@@ -1,6 +1,0 @@
-{
-  "name": "ng2-validators",
-  "dependencies": {
-    "validator": "registry:npm/validator#5.7.0+20160912014851"
-  }
-}
