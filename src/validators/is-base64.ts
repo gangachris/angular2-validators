@@ -1,5 +1,8 @@
 import { Directive} from '@angular/core';
 import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+
+import { getDirectiveName } from './helpers';
+
 import * as validator from 'validator';
 
 export function isBase64(c: AbstractControl) {
@@ -11,9 +14,9 @@ export function isBase64(c: AbstractControl) {
 }
 
 @Directive({
-  selector: '[isBase64][formControlName],[isBase64][formControl],[isBase64][ngModel]',
+  selector: getDirectiveName('isBase64'),
   providers: [
     { provide: NG_VALIDATORS, useValue: isBase64, multi: true }
   ]
 })
-export class Base64Validator{}
+export class Base64Validator { }

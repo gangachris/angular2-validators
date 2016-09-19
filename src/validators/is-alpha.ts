@@ -1,5 +1,8 @@
-import { Directive} from '@angular/core';
+import { Directive } from '@angular/core';
 import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+
+import { getDirectiveName } from './helpers';
+
 import * as validator from 'validator';
 
 export function isAlpha(c: AbstractControl) {
@@ -11,9 +14,9 @@ export function isAlpha(c: AbstractControl) {
 }
 
 @Directive({
-  selector: '[isAlpha][formControlName],[isAlpha][formControl],[isAlpha][ngModel]',
+  selector: getDirectiveName('isAlpha'),
   providers: [
     { provide: NG_VALIDATORS, useValue: isAlpha, multi: true }
   ]
 })
-export class AlphaValidator{}
+export class AlphaValidator { }

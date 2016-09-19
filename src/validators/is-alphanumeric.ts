@@ -1,5 +1,8 @@
 import { Directive} from '@angular/core';
 import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+
+import { getDirectiveName } from './helpers';
+
 import * as validator from 'validator';
 
 export function isAlphanumeric(c: AbstractControl) {
@@ -11,9 +14,9 @@ export function isAlphanumeric(c: AbstractControl) {
 }
 
 @Directive({
-  selector: '[isAlphanumeric][formControlName],[isAlphanumeric][formControl],[isAlphanumeric][ngModel]',
+  selector: getDirectiveName('isAlphanumeric'),
   providers: [
     { provide: NG_VALIDATORS, useValue: isAlphanumeric, multi: true }
   ]
 })
-export class AlphanumericValidator{}
+export class AlphanumericValidator { }
