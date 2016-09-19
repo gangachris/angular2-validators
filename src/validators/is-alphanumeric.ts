@@ -1,22 +1,13 @@
-import { Directive} from '@angular/core';
-import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+import { Directive } from '@angular/core';
 
-import { getDirectiveName } from './helpers';
+import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
 
-import * as validator from 'validator';
+const name = 'isAlphanumeric';
 
-export function isAlphanumeric(c: AbstractControl) {
-  return validator.isAlphanumeric(c.value) ? null : {
-    isAlphanumeric: {
-      valid: false
-    }
-  };
-}
+export const isAlphanumeric = getValidator(name)
 
 @Directive({
-  selector: getDirectiveName('isAlphanumeric'),
-  providers: [
-    { provide: NG_VALIDATORS, useValue: isAlphanumeric, multi: true }
-  ]
+  selector: getDirectiveName(name),
+  providers: [getDirectiveProviders(name)]
 })
 export class AlphanumericValidator { }

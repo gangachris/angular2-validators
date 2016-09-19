@@ -1,22 +1,13 @@
-import { Directive} from '@angular/core';
-import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+import { Directive } from '@angular/core';
 
-import { getDirectiveName } from './helpers';
+import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
 
-import * as validator from 'validator';
+const name = 'isAscii';
 
-export function isAscii(c: AbstractControl) {
-  return validator.isAscii(c.value) ? null : {
-    isAscii: {
-      valid: false
-    }
-  };
-}
+export const isAscii = getValidator(name)
 
 @Directive({
-  selector: getDirectiveName('isAscii'),
-  providers: [
-    { provide: NG_VALIDATORS, useValue: isAscii, multi: true }
-  ]
+  selector: getDirectiveName(name),
+  providers: [getDirectiveProviders(name)]
 })
 export class AsciiValidator { }

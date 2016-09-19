@@ -1,22 +1,13 @@
-import { Directive} from '@angular/core';
-import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+import { Directive } from '@angular/core';
 
-import { getDirectiveName } from './helpers';
+import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
 
-import * as validator from 'validator';
+const name = 'isBase64';
 
-export function isBase64(c: AbstractControl) {
-  return validator.isBase64(c.value) ? null : {
-    isBase64: {
-      valid: false
-    }
-  };
-}
+export const isBase64 = getValidator(name)
 
 @Directive({
-  selector: getDirectiveName('isBase64'),
-  providers: [
-    { provide: NG_VALIDATORS, useValue: isBase64, multi: true }
-  ]
+  selector: getDirectiveName(name),
+  providers: [getDirectiveProviders(name)]
 })
 export class Base64Validator { }
