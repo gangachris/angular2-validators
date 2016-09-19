@@ -7,7 +7,7 @@ export function isEmail(c: AbstractControl) {
     isEmail: {
       valid: false
     }
-  }
+  };
 }
 
 @Directive({
