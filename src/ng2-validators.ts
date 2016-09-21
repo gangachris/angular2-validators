@@ -12,6 +12,7 @@ export * from './validators/is-data-uri';
 export * from './validators/is-date';
 export * from './validators/is-decimal';
 export * from './validators/is-email';
+export * from './validators/is-equal';
 export * from './validators/is-float';
 export * from './validators/is-fqdn';
 export * from './validators/is-hex-color';
