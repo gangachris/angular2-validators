@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { isEmail, isAlpha, isAlphanumeric } from 'angular2-validators';
+import { isEmail, isAlpha, isAlphanumeric, equals } from 'angular2-validators';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,8 @@ export class AppComponent {
       alpha: [''],
       alphanumeric: [''],
       email: [''],
-      equal: ['']
+      equal: [''],
+      contains: ['']
     });
   }
 }

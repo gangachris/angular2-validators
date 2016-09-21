@@ -20,8 +20,14 @@
 
     <div class="form-group">
       <label for="equal">Equal:</label>
-      <input type="text" class="form-control" id="equal" formControlName="equal" isEqual="ganga">
+      <input type="text" class="form-control" id="equal" formControlName="equal" equals="jesse">
       <span>{{ theForm.controls.equal.errors | json }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="contains">Contains:</label>
+      <input type="text" class="form-control" id="contains" formControlName="contains" contains="ng">
+      <span>{{ theForm.controls.contains.errors | json }}</span>
     </div>
   </form>
 </div>
