@@ -11,3 +11,5 @@ export const isInt = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class IntValidator { }
+
+// TODO figure out how to get json params

@@ -2,14 +2,12 @@ import { Directive } from '@angular/core';
 
 import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
 
-const name = 'isByteLength';
+const name = 'isHalf';
 
-export const isByteLength = getValidator(name)
+export const isHalf = getValidator(name)
 
 @Directive({
   selector: getDirectiveName(name),
   providers: [getDirectiveProviders(name)]
 })
-export class ByteLengthValidator { }
-
-// TODO figure out how to get json params
+export class HalfValidator { }

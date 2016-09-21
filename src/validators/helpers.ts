@@ -1,23 +1,39 @@
 import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
 import * as validator from 'validator';
 
+export const invalid = {
+  valid: false
+};
+
 export function getValidator(name: string) {
   return (c: AbstractControl) => {
     return validator[name](c.value) ? null : {
-      [name]: {
-        valid: false
-      }
+      [name]: invalid
     };
   }
 };
 
-export function getValidatorWithParam(name: string) {
+export function getValidatorWithDefaultParam(name: string) {
   return (comparison: string) => {
     return (c: AbstractControl) => {
+      if (!comparison) {
+        return validator[name](c.value) ? null : {
+          [name]: invalid
+        };
+      }
+
       return validator[name](c.value, comparison) ? null : {
-        [name]: {
-          valid: false
-        }
+        [name]: invalid
+      };
+    }
+  };
+}
+
+export function getValidatorWithRequiredParam(name: string) {
+  return (comparison: string) => {
+    return (c: AbstractControl) => {
+      return comparison && validator[name](c.value, comparison) ? null : {
+        [name]: invalid
       };
     }
   };

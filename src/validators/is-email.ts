@@ -11,3 +11,5 @@ export const isEmail = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class EmailValidator { }
+
+// TODO figure out how to get json params

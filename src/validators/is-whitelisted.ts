@@ -5,18 +5,18 @@ import { getDirectiveName, getValidatorWithRequiredParam } from './helpers';
 
 import * as validator from 'validator';
 
-const name = 'contains';
+const name = 'isWhiteListed';
 
-export const contains = getValidatorWithRequiredParam(name)
+export const isWhiteListed = getValidatorWithRequiredParam(name)
 
 @Directive({
   selector: getDirectiveName(name),
   providers: [
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => ContainsValidator), multi: true }
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => WhiteListedValidator), multi: true }
   ]
 })
-export class ContainsValidator implements Validator {
+export class WhiteListedValidator implements Validator {
   constructor( @Attribute(name) public param: string) { }
 
-  validate = (c: AbstractControl) => contains(this.param)(c);
+  validate = (c: AbstractControl) => isWhiteListed(this.param)(c);
 }

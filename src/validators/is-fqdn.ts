@@ -11,3 +11,5 @@ export const isFQDN = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class FQDNValidator { }
+
+// TODO figure out how to get json params

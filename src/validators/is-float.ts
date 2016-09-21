@@ -11,3 +11,5 @@ export const isFloat = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class FloatValidator { }
+
+// TODO figure out how to get json params

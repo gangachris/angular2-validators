@@ -1,13 +1,22 @@
-import { Directive } from '@angular/core';
+import { Directive, forwardRef, Attribute } from '@angular/core';
+import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
 
-import { getValidator, getDirectiveName, getDirectiveProviders } from './helpers';
+import { getDirectiveName, getValidatorWithDefaultParam } from './helpers';
+
+import * as validator from 'validator';
 
 const name = 'isIP';
 
-export const isIP = getValidator(name)
+export const isIP = getValidatorWithDefaultParam(name)
 
 @Directive({
   selector: getDirectiveName(name),
-  providers: [getDirectiveProviders(name)]
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => IPValidator), multi: true }
+  ]
 })
-export class IPValidator { }
+export class IPValidator implements Validator {
+  constructor( @Attribute(name) public param: string) { }
+
+  validate = (c: AbstractControl) => isIP(this.param)(c);
+}

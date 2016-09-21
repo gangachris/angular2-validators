@@ -5,18 +5,20 @@ import { getDirectiveName, getValidatorWithDefaultParam } from './helpers';
 
 import * as validator from 'validator';
 
-const name = 'isAlpha';
+const name = 'isISIN';
 
-export const isAlpha = getValidatorWithDefaultParam(name)
+export const isISIN = getValidatorWithDefaultParam(name)
 
 @Directive({
   selector: getDirectiveName(name),
   providers: [
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => AlphaValidator), multi: true }
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => ISINValidator), multi: true }
   ]
 })
-export class AlphaValidator implements Validator {
+export class ISINValidator implements Validator {
   constructor( @Attribute(name) public param: string) { }
 
-  validate = (c: AbstractControl) => isAlpha(this.param)(c);
+  validate = (c: AbstractControl) => isISIN(this.param)(c);
 }
+
+// TODO figure out how to get json params

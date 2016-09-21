@@ -11,3 +11,5 @@ export const isURL = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class URLValidator { }
+
+// TODO figure out how to get json params

@@ -11,3 +11,6 @@ export const isCurrency = getValidator(name)
   providers: [getDirectiveProviders(name)]
 })
 export class CurrencyValidator { }
+
+// TODO figure out how to get json params
+
