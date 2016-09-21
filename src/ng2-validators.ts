@@ -1,3 +1,5 @@
+export * from './validators/equals';
+export * from './validators/contains';
 export * from './validators/is-after';
 export * from './validators/is-alpha';
 export * from './validators/is-alphanumeric';
@@ -12,7 +14,6 @@ export * from './validators/is-data-uri';
 export * from './validators/is-date';
 export * from './validators/is-decimal';
 export * from './validators/is-email';
-export * from './validators/is-equal';
 export * from './validators/is-float';
 export * from './validators/is-fqdn';
 export * from './validators/is-hex-color';
