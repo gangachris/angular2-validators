@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="theForm">
+    <div class="form-group">
+      <label for="alphanumeric">Alphanumeric:</label>
+      <input type="text" class="form-control" id="alphanumeric" formControlName="alphanumeric" isAlphanumeric>
+      <span>{{ theForm.controls.alphanumeric.errors | json }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="alpha">Alpha:</label>
+      <input type="text" class="form-control" id="alpha" formControlName="alpha" isAlpha>
+      <span>{{ theForm.controls.alpha.errors | json }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" formControlName="email" isEmail>
+      <span>{{ theForm.controls.email.errors | json }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="equal">Equal:</label>
+      <input type="text" class="form-control" id="equal" formControlName="equal" isEqual="ganga">
+      <span>{{ theForm.controls.equal.errors | json }}</span>
+    </div>
+  </form>
+</div>
