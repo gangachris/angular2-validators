@@ -1,4 +1,4 @@
-import { NG_VALIDATORS, AbstractControl } from '@angular/forms';
+import {AbstractControl } from '@angular/forms';
 import * as validator from 'validator';
 
 export function getValidator(name: string) {
