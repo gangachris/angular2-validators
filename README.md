@@ -6,6 +6,8 @@ FormsModule Directive validators will come soon.
 
 # Usage
 ## Install
+You need to have `@angular/forms` installed.
+
 ```bash
 $ npm install --save angular2-validators
 ```
