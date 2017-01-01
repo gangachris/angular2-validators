@@ -1,4 +1,4 @@
-**NOTE** Still in development
+**[DEPRECATED]** Since the community is moving to just calling it Angular, this has been moved to https://github.com/gangachris/ng-validators
 
 # Ng2 Validators
 A List of validators for Angular 2 Forms based on [validator.js](https://github.com/chriso/validator.js). Current version only works with ReactiveFormsModule.
